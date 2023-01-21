@@ -11,11 +11,13 @@
                 canvas.height = height;
             }
 
-            var w = document.getElementById("w");
-            var h = document.getElementById("h");
+            window.onload = function(){
+                var w = document.getElementById("w");
+                var h = document.getElementById("h");
 
-            w.addEventListener("change", changeSize());
-            h.addEventListener("change", changeSize());
+                w.addEventListener("change", changeSize());
+                h.addEventListener("change", changeSize());
+            }
         </script>
         <style>
             input {
