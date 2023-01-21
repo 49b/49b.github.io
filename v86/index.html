@@ -2,29 +2,29 @@
     <head>
         <script src="build/libv86.js"></script>
         <script>
-function changeSize(){
-    var canvas = document.getElementById("c");
-    var width = document.getElementById("w").value;
-    var height = document.getElementById("h").value;
+            function changeSize(){
+                var canvas = document.getElementById("c");
+                var width = document.getElementById("w").value;
+                var height = document.getElementById("h").value;
 
-    canvas.width = width;
-    canvas.height = height;
-}
+                canvas.width = width;
+                canvas.height = height;
+            }
 
-var w = document.getElementById("w");
-var h = document.getElementById("h");
+            var w = document.getElementById("w");
+            var h = document.getElementById("h");
 
-w.addEventListener("change", changeSize());
-h.addEventListener("change", changeSize());
+            w.addEventListener("change", changeSize());
+            h.addEventListener("change", changeSize());
         </script>
         <style>
-input {
-    width: 64px;
-}
+            input {
+                width: 64px;
+            }
 
-canvas {
-    border: 1px solid #000000;
-}
+            canvas {
+                border: 1px solid #000000;
+            }
         </style>
     </head>
     <body>
@@ -43,7 +43,11 @@ canvas {
                type="number"
         ></input>
 
-        <!-- <button onclick="changeSize()">Go</button><br/> -->
+        <!--
+            <button onclick="changeSize()">Go</button>
+        -->
+
+        <br/>
 
         <canvas
                 width="640"
