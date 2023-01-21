@@ -10,20 +10,16 @@
                 canvas.width = width;
                 canvas.height = height;
             }
-
+            
             window.onload = function(){
                 var w = document.getElementById("w");
                 var h = document.getElementById("h");
 
-                w.onKeyDown = "changeSize()";
-                h.onKeyDown = "changeSize()";
+                w.addEventListener("keyup", changeSize);
+                h.addEventListener("keyup", changeSize);
                 
-                w.addEventListener("change", function(){
-                    changeSize();
-                });
-                h.addEventListener("change", function(){
-                    changeSize();
-                });
+                w.addEventListener("change", changeSize);
+                h.addEventListener("change", changeSize);
             }
         </script>
         <style>
