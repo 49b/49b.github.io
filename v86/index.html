@@ -15,8 +15,12 @@
                 var w = document.getElementById("w");
                 var h = document.getElementById("h");
 
-                w.addEventListener("change", changeSize());
-                h.addEventListener("change", changeSize());
+                w.addEventListener("change", function(){
+                    changeSize()
+                });
+                h.addEventListener("change", function(){
+                    changeSize()
+                });
             }
         </script>
         <style>
