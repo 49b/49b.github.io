@@ -1,6 +1,5 @@
 <html>
     <head>
-        <script src="build/libv86.js"></script>
         <script>
             function changeSize(){
                 var canvas = document.getElementById("c");
@@ -59,5 +58,6 @@
                 height="480"
                 id="c"
         ></canvas>
+        <script src="build/libv86.js"></script> <!-- script tag is after canvas tag to fix an error. -->
     </body>
 </html>
