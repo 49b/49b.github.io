@@ -2,23 +2,29 @@
     <head>
         <script src="build/libv86.js"></script>
         <script>
-            function changeSize(){
-                canvas = document.getElementById("c");
-                width = document.getElementById("w").value;
-                height = document.getElementById("h").value;
-                
-                canvas.width = width;
-                canvas.height = height;
-            }
+function changeSize(){
+    var canvas = document.getElementById("c");
+    var width = document.getElementById("w").value;
+    var height = document.getElementById("h").value;
+
+    canvas.width = width;
+    canvas.height = height;
+}
+
+var w = document.getElementById("w");
+var h = document.getElementById("h");
+
+w.addEventListener("change", changeSize());
+h.addEventListener("change", changeSize());
         </script>
         <style>
-            input {
-                width: 64px;
-            }
-            
-            canvas {
-                border: 1px solid #000000;
-            }
+input {
+    width: 64px;
+}
+
+canvas {
+    border: 1px solid #000000;
+}
         </style>
     </head>
     <body>
