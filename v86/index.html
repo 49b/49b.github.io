@@ -15,11 +15,14 @@
                 var w = document.getElementById("w");
                 var h = document.getElementById("h");
 
+                w.onKeyDown = "changeSize()";
+                h.onKeyDown = "changeSize()";
+                
                 w.addEventListener("change", function(){
-                    changeSize()
+                    changeSize();
                 });
                 h.addEventListener("change", function(){
-                    changeSize()
+                    changeSize();
                 });
             }
         </script>
