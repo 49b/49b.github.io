@@ -19,6 +19,20 @@
                 
                 w.addEventListener("change", changeSize);
                 h.addEventListener("change", changeSize);
+                
+                var emulator = new V86Starter({
+                    screen_container: document.getElementById("c"),
+                    bios: {
+                        url: "../../bios/seabios.bin",
+                    },
+                    vga_bios: {
+                        url: "../../bios/vgabios.bin",
+                    },
+                    cdrom: {
+                        url: "https://k.copy.sh/linux.iso",
+                    },
+                    autostart: true,
+                });
             }
         </script>
         <style>
