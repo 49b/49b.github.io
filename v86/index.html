@@ -1,8 +1,48 @@
 <html>
     <head>
         <script src="build/libv86.js"></script>
+        <script>
+            function changeSize(){
+                canvas = document.getElementById("c");
+                width = document.getElementById("w").value;
+                height = document.getElementById("h").value;
+                
+                canvas.width = width;
+                canvas.height = height;
+            }
+        </script>
+        <style>
+            input {
+                width: 64px;
+            }
+            
+            canvas {
+                border: 1px solid #000000;
+            }
+        </style>
     </head>
     <body>
         <p>Virtual 86</p>
+        <input 
+               value="1024"
+               placeholder="Width"
+               id="w"
+               type="number"
+        ></input>
+
+        <input
+               value="768"
+               placeholder="Height"
+               id="h"
+               type="number"
+        ></input>
+
+        <button onclick="changeSize()">Go</button><br/>
+
+        <canavs
+                width="1024"
+                height="768"
+                id="c"
+        ></canvas>
     </body>
 </html>
