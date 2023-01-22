@@ -1,40 +1,6 @@
 <html>
     <head>
-        <script>
-            function changeSize(){
-                var canvas = document.getElementById("c");
-                var width = document.getElementById("w").value;
-                var height = document.getElementById("h").value;
-
-                canvas.width = width;
-                canvas.height = height;
-            }
-            
-            window.onload = function(){
-                var w = document.getElementById("w");
-                var h = document.getElementById("h");
-
-                w.addEventListener("keyup", changeSize);
-                h.addEventListener("keyup", changeSize);
-                
-                w.addEventListener("change", changeSize);
-                h.addEventListener("change", changeSize);
-                
-                var emulator = new V86Starter({
-                    screen_container: document.getElementById("c"),
-                    bios: {
-                        url: "../../bios/seabios.bin",
-                    },
-                    vga_bios: {
-                        url: "../../bios/vgabios.bin",
-                    },
-                    cdrom: {
-                        url: "https://k.copy.sh/linux.iso",
-                    },
-                    autostart: true,
-                });
-            }
-        </script>
+        
         <style>
             input {
                 width: 64px;
@@ -72,6 +38,42 @@
                 height="480"
                 id="c"
         ></canvas>
-        <script src="build/libv86.js"></script> <!-- script tag is after canvas tag to fix an error. -->
+        <script src="build/libv86.js"></script> 
+        <script>
+            function changeSize(){
+                var canvas = document.getElementById("c");
+                var width = document.getElementById("w").value;
+                var height = document.getElementById("h").value;
+
+                canvas.width = width;
+                canvas.height = height;
+            }
+            
+            window.onload = function(){
+                var w = document.getElementById("w");
+                var h = document.getElementById("h");
+
+                w.addEventListener("keyup", changeSize);
+                h.addEventListener("keyup", changeSize);
+                
+                w.addEventListener("change", changeSize);
+                h.addEventListener("change", changeSize);
+                
+                var emulator = new V86Starter({
+                    screen_container: document.getElementById("c"),
+                    bios: {
+                        url: "../../bios/seabios.bin",
+                    },
+                    vga_bios: {
+                        url: "../../bios/vgabios.bin",
+                    },
+                    cdrom: {
+                        url: "https://k.copy.sh/linux.iso",
+                    },
+                    autostart: true,
+                });
+            }
+        </script>
+        <!-- script tag is after canvas tag to fix an error. -->
     </body>
 </html>
