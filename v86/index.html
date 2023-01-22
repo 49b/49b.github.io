@@ -10,6 +10,22 @@
                 canvas.height = height;
             }
             
+            function loadOS(fileimg){
+                var emulator = new V86Starter({
+                    screen_container: document.getElementById("c"),
+                    bios: {
+                        url: "bios/seabios.bin",
+                    },
+                    vga_bios: {
+                        url: "bios/vgabios.bin",
+                    },
+                    cdrom: {
+                        url: fileimg,
+                    },
+                    autostart: true,
+                });
+            }
+            
             window.onload = function(){
                 var w = document.getElementById("w");
                 var h = document.getElementById("h");
@@ -20,19 +36,7 @@
                 w.addEventListener("change", changeSize);
                 h.addEventListener("change", changeSize);
                 
-                var emulator = new V86Starter({
-                    screen_container: document.getElementById("c"),
-                    bios: {
-                        url: "bios/seabios.bin",
-                    },
-                    vga_bios: {
-                        url: "bios/vgabios.bin",
-                    },
-                    cdrom: {
-                        url: "linux.iso",
-                    },
-                    autostart: true,
-                });
+                loadOS("linux.iso");
             }
         </script>
         <style>
@@ -61,6 +65,9 @@
                type="number"
         ></input>
 
+        <button onclick="loadOS('linux.iso')">Linux</button>
+        <button onclick="loadOS('MicroXP-v0.82.iso')">Micro XP (Windows XP)</button>
+
         <!--
             <button onclick="changeSize()">Go</button>
         -->
@@ -71,7 +78,5 @@
             <div style="white-space: pre; font: 14px monospace; line-height: 14px"></div> 
             <canvas width="640" height="480"></canvas>
         </div>
-        <script src="build/libv86.js"></script>
-        <!-- script tag is after canvas tag to fix an error. -->
     </body>
 </html>
