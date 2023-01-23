@@ -1,5 +1,6 @@
 <html>
     <head>
+        <script src="libv86.js"></script>
         <script>
             function changeSize(){
                 var canvas = document.getElementById("c");
@@ -8,22 +9,6 @@
 
                 canvas.width = width;
                 canvas.height = height;
-            }
-            
-            function loadOS(fileimg){
-                var emulator = new V86Starter({
-                    screen_container: document.getElementById("c"),
-                    bios: {
-                        url: "bios/seabios.bin",
-                    },
-                    vga_bios: {
-                        url: "bios/vgabios.bin",
-                    },
-                    cdrom: {
-                        url: fileimg,
-                    },
-                    autostart: true,
-                });
             }
             
             window.onload = function(){
@@ -35,6 +20,22 @@
                 
                 w.addEventListener("change", changeSize);
                 h.addEventListener("change", changeSize);
+                
+                function loadOS(fileimg){
+                    var emulator = new V86Starter({
+                        screen_container: document.getElementById("c"),
+                        bios: {
+                            url: "bios/seabios.bin",
+                        },
+                        vga_bios: {
+                            url: "bios/vgabios.bin",
+                        },
+                        cdrom: {
+                            url: fileimg,
+                        },
+                        autostart: true,
+                    });
+                }
                 
                 loadOS("linux.iso");
             }
