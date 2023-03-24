@@ -11,6 +11,24 @@
                 canvas.height = height;
             }
             
+            function loadOS(fileimg, type="cdrom", memory_size=512*1024*1024, async1=false)){
+                var emulator = new V86Starter({
+                    screen_container: document.getElementById("c"),
+                    bios: {
+                        url: "bios/seabios.bin",
+                    },
+                    vga_bios: {
+                        url: "bios/vgabios.bin",
+                    },
+                    [type]: {
+                        url: fileimg,
+                        async: async1
+                    },
+                    autostart: true,
+                    memory_size: memory_size,
+                });
+            }
+            
             window.onload = function(){
                 var w = document.getElementById("w");
                 var h = document.getElementById("h");
@@ -21,23 +39,7 @@
                 w.addEventListener("change", changeSize);
                 h.addEventListener("change", changeSize);
                 
-                function loadOS(fileimg){
-                    var emulator = new V86Starter({
-                        screen_container: document.getElementById("c"),
-                        bios: {
-                            url: "bios/seabios.bin",
-                        },
-                        vga_bios: {
-                            url: "bios/vgabios.bin",
-                        },
-                        cdrom: {
-                            url: fileimg,
-                        },
-                        autostart: true,
-                    });
-                }
-                
-                loadOS("linux.iso");
+                loadOS("vista.img");
             }
         </script>
         <style>
@@ -68,6 +70,7 @@
 
         <button onclick="loadOS('linux.iso')">Linux</button>
         <button onclick="loadOS('c.img')">Micro XP (Windows XP)</button>
+        <button onclick="loadOS('vista.img', 'hda', 2**31, true)"></button>
 
         <!--
             <button onclick="changeSize()">Go</button>
