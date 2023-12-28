@@ -1,6 +1,12 @@
 <html>
     <head>
         <script src="build/libv86.js"></script>
+        <style>
+            @font-face {
+                font-family: 'vga-437';
+                src: url('fonts/Perfect DOS VGA 437 Win.ttf.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+            } 
+        </style>
         <script>
             function changeSize(){
                 var canvas = document.getElementById("c");
@@ -79,7 +85,7 @@
         <br/>
 
         <div id="c">
-            <div style="white-space: pre; font: 14px monospace; line-height: 14px"></div> 
+            <div style="white-space: pre; font: 14px vga437; line-height: 14px"></div> 
             <canvas width="640" height="480"></canvas>
         </div>
     </body>
