@@ -2,34 +2,34 @@
     <head>
         <script src="build/libv86.js"></script>
         <script>
-        window.onload = function(){
-                function changeSize(){
-                    var canvas = document.getElementById("c");
-                    var width = document.getElementById("w").value;
-                    var height = document.getElementById("h").value;
-    
-                    canvas.width = width;
-                    canvas.height = height;
-                }
-                
-                function loadOS(fileimg, type="cdrom", memory_size=512*1024*1024, async1=false){
-                    var emulator = new V86Starter({
-                        screen_container: document.getElementById("c"),
-                        bios: {
-                            url: "bios/seabios.bin",
-                        },
-                        vga_bios: {
-                            url: "bios/vgabios.bin",
-                        },
-                        [type]: {
-                            url: fileimg,
-                            async: async1
-                        },
-                        autostart: true,
-                        memory_size: memory_size,
-                    });
-                }
+            function changeSize(){
+                var canvas = document.getElementById("c");
+                var width = document.getElementById("w").value;
+                var height = document.getElementById("h").value;
+
+                canvas.width = width;
+                canvas.height = height;
+            }
             
+            function loadOS(fileimg, type="cdrom", memory_size=512*1024*1024, async1=false){
+                var emulator = new V86Starter({
+                    screen_container: document.getElementById("c"),
+                    bios: {
+                        url: "bios/seabios.bin",
+                    },
+                    vga_bios: {
+                        url: "bios/vgabios.bin",
+                    },
+                    [type]: {
+                        url: fileimg,
+                        async: async1
+                    },
+                    autostart: true,
+                    memory_size: memory_size,
+                });
+            }
+
+            window.onload = function(){
                 var w = document.getElementById("w");
                 var h = document.getElementById("h");
 
